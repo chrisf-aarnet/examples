@@ -54,6 +54,7 @@ jobs:
             --no-start \
             --memory 512 \
             --name http-java17-${GITHUB_RUN_ID} \
+            --runtime index.unikraft.io/official/java:17 \
             --subdomain http-java17-${GITHUB_RUN_ID} \
             -p 443:8080 \
             .;
@@ -90,6 +91,7 @@ jobs:
             --no-start \
             --memory 512 \
             --name http-java17-${GITHUB_RUN_ID}-dbg \
+            --runtime index.unikraft.io/official/java:17 \
             --subdomain http-java17-${GITHUB_RUN_ID}-dbg \
             -p 443:8080 \
             .;
