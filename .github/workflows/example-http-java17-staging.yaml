@@ -72,7 +72,9 @@ jobs:
         run: |
           set -xe;
 
+          kraft cloud vm logs http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud vm stop http-java17-${GITHUB_RUN_ID} || true;
+          kraft cloud instance get http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud vm logs http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud vm rm http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud img rm index.unikraft.io/test/http-java17-${GITHUB_RUN_ID} || true;
@@ -91,7 +93,7 @@ jobs:
             --no-start \
             --memory 512 \
             --name http-java17-${GITHUB_RUN_ID}-dbg \
-            --runtime index.unikraft.io/official/java:17 \
+            --runtime index.unikraft.io/official/java:17-dbg \
             --subdomain http-java17-${GITHUB_RUN_ID}-dbg \
             -p 443:8080 \
             .;
@@ -109,7 +111,9 @@ jobs:
         run: |
           set -xe;
 
+          kraft cloud vm logs http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud vm stop http-java17-${GITHUB_RUN_ID}-dbg || true;
+          kraft cloud instance get http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud vm logs http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud vm rm http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud img rm index.unikraft.io/test/http-java17-${GITHUB_RUN_ID}-dbg || true;

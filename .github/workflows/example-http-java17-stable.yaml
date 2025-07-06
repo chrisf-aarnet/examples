@@ -72,6 +72,7 @@ jobs:
         run: |
           set -xe;
 
+          kraft cloud vm logs http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud vm stop http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud instance get http-java17-${GITHUB_RUN_ID} || true;
           kraft cloud vm logs http-java17-${GITHUB_RUN_ID} || true;
@@ -110,6 +111,7 @@ jobs:
         run: |
           set -xe;
 
+          kraft cloud vm logs http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud vm stop http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud instance get http-java17-${GITHUB_RUN_ID}-dbg || true;
           kraft cloud vm logs http-java17-${GITHUB_RUN_ID}-dbg || true;
